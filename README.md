@@ -128,12 +128,12 @@ En la etapa de alimentación (Buck-Converter) se han colocado resistores con có
 - El uso del ESP32 reduce costos y simplifica la integración con sistemas IoT.  
 
 ### ⚠️ Precauciones  
-- **Montaje**: Verificar polaridad de componentes sensibles (ej. capacitores electrolíticos).  
-- **Fabricación**: Asegurar que el fabricante cumpla con tolerancias de impedancia si se requiere.  
+- **Montaje**: Verificar polaridad de componentes sensibles (ej. entrada de 12 voltios y capacitores electrolíticos).  
+- **Adquisición de componentes**: Asegurar que los componentes por comprar tengan un codigo SMD correspondiente a cada elemento listado en este repositorio, caso contrario, no será posible soldarlos en la placa por la diferencia de dimensiones.  
 
 ### 🔮 Recomendaciones  
-- Realizar pruebas de vibración mecánica en el prototipo.  
-- Considerar encapsulado para ambientes hostiles.  
+- Añadir una etapa de protección de sobretensiones para el circuito, ya que el fusible colocado en el diseño protege unicamente de los aumentos de corriente.  
+- Considerar encapsulado/blindaje para ambientes hostiles.  
 
 ---
 
