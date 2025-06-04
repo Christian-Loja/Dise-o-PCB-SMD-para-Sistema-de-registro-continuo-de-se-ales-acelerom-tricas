@@ -24,25 +24,25 @@ A continuación se detallan los componentes clave del diseño:
 
 ### 🔌 Componentes Pasivos  
 #### Resistencias  
-- `R1`: 8.2kΩ (Tipo: `SMD`, Componente: `2512`).
-- `R2`: 100kΩ (Tipo: `SMD`, Componente: `2512`).
-- `R3`: 8.2kΩ (Tipo: `SMD`, Componente: `2512`).
+- `R1`: 8.2kΩ (Tipo: `SMD`, Componente SMD: `2512`).
+- `R2`: 100kΩ (Tipo: `SMD`, Componente SMD: `2512`).
+- `R3`: 8.2kΩ (Tipo: `SMD`, Componente SMD: `2512`).
 - `R4`: 220kΩ (Tipo: `Potenciómetro Modular`, Componente: `PV36P`).
-- `R5`: 3.3kΩ (Tipo: `SMD`, Componente: `1206`).
-- `R6`: 3.3kΩ (Tipo: `SMD`, Componente: `1206`).
-- `R7`: 3.3kΩ (Tipo: `SMD`, Componente: `1206`).
-- `R8`: 3.3kΩ (Tipo: `SMD`, Componente: `1206`).
-- `R9`: 4.7kΩ (Tipo: `SMD`, Componente: `1206`).
-- `R10`: 4.7kΩ (Tipo: `SMD`, Componente: `1206`).
-- `R11`: 4.7kΩ (Tipo: `SMD`, Componente: `1206`).
-- `R12`: 4.7kΩ (Tipo: `SMD`, Componente: `1206`).
-- `R13`: 200Ω (Tipo: `SMD`, Componente: `1206`).
-- `R14`: 5.11kΩ (Tipo: `SMD`, Componente: `1206`).
-- `R15`: 5.11kΩ (Tipo: `SMD`, Componente: `1206`).
-- `R16`: 4.7kΩ (Tipo: `SMD`, Componente: `1206`).
-- `R17`: 4.7kΩ (Tipo: `SMD`, Componente: `2512`).
-- `R18`: 10kΩ (Tipo: `SMD`, Componente: `1206`).
-- `R19`: 10kΩ (Tipo: `SMD`, Componente: `1206`).
+- `R5`: 3.3kΩ (Tipo: `SMD`, Componente SMD: `1206`).
+- `R6`: 3.3kΩ (Tipo: `SMD`, Componente SMD: `1206`).
+- `R7`: 3.3kΩ (Tipo: `SMD`, Componente SMD: `1206`).
+- `R8`: 3.3kΩ (Tipo: `SMD`, Componente SMD: `1206`).
+- `R9`: 4.7kΩ (Tipo: `SMD`, Componente SMD: `1206`).
+- `R10`: 4.7kΩ (Tipo: `SMD`, Componente SMD: `1206`).
+- `R11`: 4.7kΩ (Tipo: `SMD`, Componente SMD: `1206`).
+- `R12`: 4.7kΩ (Tipo: `SMD`, Componente SMD: `1206`).
+- `R13`: 200Ω (Tipo: `SMD`, Componente SMD: `1206`).
+- `R14`: 5.11kΩ (Tipo: `SMD`, Componente SMD: `1206`).
+- `R15`: 5.11kΩ (Tipo: `SMD`, Componente SMD: `1206`).
+- `R16`: 4.7kΩ (Tipo: `SMD`, Componente SMD: `1206`).
+- `R17`: 4.7kΩ (Tipo: `SMD`, Componente SMD: `2512`).
+- `R18`: 10kΩ (Tipo: `SMD`, Componente SMD: `1206`).
+- `R19`: 10kΩ (Tipo: `SMD`, Componente SMD: `1206`).
 
 #### Capacitores  
 - `C1`: 100nF (Tipo: `Cerámico Modular 2.54mm`, Código: `104`).
@@ -57,37 +57,33 @@ A continuación se detallan los componentes clave del diseño:
 - `C10`: 4.7nF (Tipo: `Cerámico Modular 2.54mm`, Código: `402`).
 - `C11`: 10nF (Tipo: `Cerámico Modular 2.54mm`, Código: `103`).
 - `C12`: 12µF (Tipo: `Electrolítico Modular 5mm`).
-- `C13`: 100nF (Tipo: `SMD`, Componente: `0603`, Código: `104`).
-- `C14`: 1µF (Tipo: `SMD`, Componente: `0603`, Código: `105`).
-- `C15`: 100nF (Tipo: `SMD`, Componente: `0603`, Código: `104`).
-- `C16`: 100nF (Tipo: `SMD`, Componente: `0603`, Código: `104`).
-- `C17`: 10µF (Tipo: `SMD`, Componente: `1206`, Código: `106`).
-- `C18`: 100nF (Tipo: `SMD`, Componente: `0603`, Código: `104`).
-- `C19`: 100nF (Tipo: `SMD`, Componente: `0603`, Código: `104`).
+- `C13`: 100nF (Tipo: `SMD`, Componente SMD: `0603`, Código: `104`).
+- `C14`: 1µF (Tipo: `SMD`, Componente SMD: `0603`, Código: `105`).
+- `C15`: 100nF (Tipo: `SMD`, Componente SMD: `0603`, Código: `104`).
+- `C16`: 100nF (Tipo: `SMD`, Componente SMD: `0603`, Código: `104`).
+- `C17`: 10µF (Tipo: `SMD`, Componente SMD: `1206`, Código: `106`).
+- `C18`: 100nF (Tipo: `SMD`, Componente SMD: `0603`, Código: `104`).
+- `C19`: 100nF (Tipo: `SMD`, Componente SMD: `0603`, Código: `104`).
 
 #### Inductores  
 - `L1`: 2uH (Tipo: `SMD`, Componente: `0805`).
 
 #### Diodos  
-- `D1`: Diodo Schottky `1N5819` (Código: `SS1H10-E3/61T`).  
-- `D2`: Diodo LED `1N5819` (Código: `SS1H10-E3/61T`).  
-- `D3`: Diodo Schottky `1N5819` (Código: `SS1H10-E3/61T`).  
-- `D4`: Diodo Schottky `1N5819` (Código: `SS1H10-E3/61T`).  
-- `D5`: Diodo Schottky `1N5819` (Código: `SS1H10-E3/61T`).  
-- `D6`: Diodo Schottky `1N5819` (Código: `SS1H10-E3/61T`).  
-- `D7`: Diodo LED `1N5819` (Código: `SS1H10-E3/61T`).  
+- `D1`: Diodo `1N4148` (Encapsulado: `SMA/DO-214AC`, Código SMD: `US1M`).  
+- `D2`: Diodo LED (Código SMD: `1206`).  
+- `D3`: Diodo `1N4148` (Encapsulado: `SMA/DO-214AC`, Código SMD: `US1M`).  
+- `D4`: Diodo `1N4148` (Encapsulado: `SMA/DO-214AC`, Código SMD: `US1M`).  
+- `D5`: Diodo `1N4001` (Encapsulado: `SMA/DO-214AC`, Código SMD: `S1M`).  
+- `D6`: Diodo `1N4001` (Encapsulado: `SMA/DO-214AC`, Código SMD: `S1M`).  
+- `D7`: Diodo LED (Código SMD: `1206`).  
 
 ### 🔋 Conector de Fuente de Alimentación (+12V)  
 - Conector XH 2 posiciones.  
 
 ### 📊 Test Points para Depuración  
-- Pin Header 1x1:
-  
-- Pin Header 1x2:
-  
-- Pin Header 1x3:
-  
-- Pin Header 1x4:
+- Pin Header 1x4 (Conectado al ADXL355Z): `IO15/IO13/IO12/IO14`
+- Pin Header 1x5 (Conectado a 74LVC125A(Tarjeta SD), DS3231, CH340G(USB C), CH340G, DS3231): `MOSI/SCL/TXD0/RXD0/SDA`
+- Pin Header 1x5 (Conectado a 74LVC125A(Tarjeta SD), 74LVC125A, 74LVC125A, GPS, GPS): `MISO/SCK/CS/RXGPS/TXGPS`
 
 ---
 
@@ -108,11 +104,13 @@ Los archivos Gerber para fabricación están disponibles en la carpeta [`/gerber
 
 ---
 
-## 🛠️ Características y Sustento del Diseño  
+## 🛠️ Características y Sustento del Diseño 
+Este proyecto se ha realizado con el objetivo de optimizar el prototipo modular del sistema de monitoreo sísmico, para esto se han utilizado componentes de montaje superficial para mejorar la eficiencia y reducir tamaño. Adicionalmente, se han implementado zonas de cobre y planos de masa para minimizar el ruido e interferencias y mejorar la disipación térmica. Se han colocado varios puntos de prueba (test points) para depuración a partir de peinetas (Pin Headers macho) en donde se pueden conectar jumpers o sondas de osciloscopio para observar las señales provenientes del módulo GPS, módulo RTC, acelerómetro, tarjeta micro SD y puerto USB C que se dirigen al ESP32.
 ### ✔️ Características Clave  
-- **Bajo ruido**: Diseño optimizado para minimizar interferencias en señales analógicas.  
-- **Comunicación inalámbrica**: Integración de Wi-Fi/Bluetooth mediante ESP32.  
-- **Robustez**: Protección contra sobretensiones y filtrado de señales.  
+- **Reducción de tamaño**: Optimización del espacio en la placa al reemplazar los módulos ESP32DEV-KIT, Buck-Converter MH-Mini360, Lector µSD y RTC-DS3231 por una versión SMD dieñada para cada módulo. Para lograr estos reemplazos fue necesario aplicar ingeniería inversa a los modulos. La implementación de las versiones SMD también proporciona mayor resistencia al movimiento y vibraciones a comparación con sus versiones modulares. 
+- **Bajo ruido**: Para minimizar interferencias en las señales se ha colocado un plano de tierra en ambas caras del diseño, de modo que se cortocircuite cualquier señal no deseada que incida sobre la placa. Estos planos de tierra también mejoran la disipación térmica de los componentes, por ende, se reduce el ruido térmico.  
+- **Comunicación inalámbrica**: Para mantener las funciones de conectividad Wifi del ESP32 se implementó el modelo ESP32-WROOM-32E cuyo encapsulado cuenta con una antena externa para la comunicación.  
+- **Robustez y eficiencia energética**: Para asegurar la integridad de los componentes presentes en la placa se ha configurado una serie de diodos rectificadores que dirigen el flujo de corriente de cualquiera de las fuentes (+12V o USB-C) hacia un regulador de voltaje que proporcionará los 3.3V necesarios en el proyecto. La fuente de alimentación principal se ha implementado mediante un Buck-Converter debido a que permite manejar corrientes considerables manteniendo una generación de calor baja y, principalemte, debido a la alta eficiencia energética que este tipo de fuentes proporciona (aprox 85%). Por último, se ha colocado un fusible en la entrada de +12V para proteger el circuito de picos de corriente.
 
 ### 📐 Criterios de Diseño  
 - **Layout**: Separación de señales analógicas/digitales para reducir acoplamiento.  
