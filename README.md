@@ -133,7 +133,8 @@ En la etapa de alimentación (Buck-Converter) se han colocado resistores con có
 
 ### 🔮 Recomendaciones  
 - Añadir una etapa de protección de sobretensiones para el circuito, ya que el fusible colocado en el diseño protege unicamente de los aumentos de corriente.  
-- Considerar encapsulado/blindaje para ambientes hostiles.  
+- Considerar encapsulado/blindaje para ambientes hostiles.
+- Añadir un circuito para alimentación de respaldo para todo el sistema. Actualmente solo el RTC DS3231 cuenta con una bateria que mantiene activo el reloj durante periodos de desconexión eléctrica.
 
 ---
 
