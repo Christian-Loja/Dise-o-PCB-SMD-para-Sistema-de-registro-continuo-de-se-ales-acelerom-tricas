@@ -124,6 +124,9 @@ En la etapa de alimentación (Buck-Converter) se han colocado resistores con có
 ---
 
 ## 🎯 Conclusiones y Recomendaciones  
+### ✅ Verificación de errores eléctricos (ERC) y Verificación de reglas de diseño (DRC).
+- La validación de reglas de diseño y de errores eléctricos realizada por el software Fusion 360 se muestra en una tabla que lista los errores encontrados. En este caso la validación de ERC y DRC muestran cero errores, estos resultados se muestran en las carpetas ![Esquemático](/images_schematic) y ![PCB](/images_pcb_layers) respectivamente.
+
 ### ✅ Conclusiones  
 - La placa cumple con los requisitos de precisión y escalabilidad para redes sísmicas.  
 - El uso del ESP32 reduce costos y simplifica la integración con sistemas IoT.  
