@@ -88,19 +88,20 @@ A continuación se detallan los componentes clave del diseño:
 ---
 
 ## 🖼️ Imágenes del Diseño  
-### Vista 3D de la PCB  
-![Vista 3D de la PCB](/images/pcb_3d_view.png)  
 
 ### Esquemático  
 ![Esquemático](/images/schematic_diagram.png)  
 
+### Circuito Impreso  
+![PCB](/images/pcb_layers.png)  
+
+### Vista 3D de la PCB  
+![Vista 3D de la PCB](/images/pcb_3d_view.png)  
+
 ---
 
-## 📥 Descarga de Archivos Gerber  
-Los archivos Gerber para fabricación están disponibles en la carpeta [`/gerber_files`](/gerber_files) de este repositorio. Incluyen:  
-- `PCB_TOP.gbr` (Capa superior).  
-- `PCB_BOTTOM.gbr` (Capa inferior).  
-- `PCB_DRILL.txt` (Archivo de taladros).  
+## 📥 Descarga de Archivos Gerber, ODB, Drill y BOM
+Los archivos para fabricación están disponibles en la carpeta [`/PCB_SMD`](/PCB_SMD) de este repositorio. Los archivos Gerber se pueden visualizar en el archivo PDF `Gerber_images`.
 
 ---
 
