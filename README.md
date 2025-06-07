@@ -101,7 +101,7 @@ A continuación se detallan los componentes clave del diseño:
 ---
 
 ## 📥 Descarga de Archivos Gerber, ODB, Drill y BOM
-Los archivos para fabricación están disponibles en la carpeta [`/PCB_SMD`](/PCB_SMD) de este repositorio. Los archivos Gerber se pueden visualizar en el archivo PDF `Gerber_images`.
+Los archivos para fabricación están disponibles en la carpeta [`/PCB_SMD`](/PCB_SMD) de este repositorio. Los archivos Gerber se pueden visualizar en el archivo PDF ![Gerber images](/Gerber_images.pdf).
 
 ---
 
