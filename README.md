@@ -90,13 +90,13 @@ A continuación se detallan los componentes clave del diseño:
 ## 🖼️ Imágenes del Diseño  
 
 ### Esquemático  
-![Esquemático](/images/schematic_diagram.png)  
+![Esquemático](/images_schematic)  
 
 ### Circuito Impreso  
-![PCB](/images/pcb_layers.png)  
+![PCB](/images_pcb_layers)  
 
 ### Vista 3D de la PCB  
-![Vista 3D de la PCB](/images/pcb_3d_view.png)  
+![Vista 3D de la PCB](/images_pcb_3d_view)  
 
 ---
 
