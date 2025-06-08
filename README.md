@@ -1,7 +1,9 @@
 # 🚀 PCB para Monitoreo de Señales Acelerométricas en Red de Control Sísmico  
 
 ## 📌 Introducción  
-Este proyecto consiste en el diseño de una placa PCB (en su mayoría con componentes SMD) para la adquisición y transmisión de señales acelerométricas en tiempo real, destinada a redes de control sísmico. La placa integra un microcontrolador **ESP32** para procesamiento y comunicación inalámbrica, junto con componentes electrónicos y sensores optimizados para garantizar precisión en la medición de vibraciones.  
+Este proyecto consiste en el diseño de una placa PCB (en su mayoría con componentes SMD) para la adquisición y transmisión de señales acelerométricas, destinada a redes de control sísmico. La placa integra un microcontrolador **ESP32** para procesamiento y comunicación inalámbrica, junto con componentes electrónicos y sensores optimizados para garantizar precisión en la medición de vibraciones.  
+
+Este proyecto se basa en la electrónica (Hardware) necesaria para que el sistema de monitoreo sísmico funcione, todo el software que usa este proyecto se encuentra en el repositorio [RSA Sensor](https://github.com/JorgeZh-hub/RSA_sensor)
 
 ---
 
