@@ -101,7 +101,7 @@ A continuación se detallan los componentes clave del diseño:
 - `D7`: Diodo LED (Código SMD: `1206`).
 
 #### Otros  
-- Micro-SD Holder: (Tipo: Push in - Auto eject out (SMD/SMT), Modelo: `MSD-1-A`).
+- Micro-SD Holder: (Tipo: Push in - Auto eject out (SMD/SMT), Modelo: `MSD-1-A`). (ACTUALIZACIÓN NECESARIA)
 - Conector USB Tipo-C (3.1) Hembra: Componente: `12401832E402A`.
 
 ### 🔋 Conector de Fuente de Alimentación (+12V)  
