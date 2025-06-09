@@ -1,15 +1,30 @@
 # 🚀 PCB para Monitoreo de Señales Acelerométricas en Red de Control Sísmico  
 
 ## 📌 Introducción  
-Este proyecto consiste en el diseño de una placa PCB (en su mayoría con componentes SMD) para la adquisición y transmisión de señales acelerométricas, destinada a redes de control sísmico. La placa integra un microcontrolador **ESP32** para procesamiento y comunicación inalámbrica, junto con componentes electrónicos y sensores optimizados para garantizar precisión en la medición de vibraciones. Los dispositivos utilizados usan comunicación SPI, I2C y UART. Estos tres protocolos son ampliamente utilizados en electrónica para la transferencia de datos entre dispositivos como microcontroladores, sensores, memorias, etc.
+Este proyecto consiste en el diseño de una placa PCB (principalmente con componentes SMD) para la adquisición y transmisión de señales acelerométricas en redes de control sísmico. La placa integra un microcontrolador **ESP32** para procesamiento y comunicación inalámbrica, junto con componentes electrónicos y sensores optimizados para garantizar precisión en la medición de vibraciones. Los dispositivos utilizados usan comunicación SPI, I2C y UART. Estos tres protocolos son ampliamente utilizados en electrónica para la transferencia de datos entre dispositivos como microcontroladores, sensores, memorias, etc.
 
-Las conexiones necesarias para la comunicación SPI (Serial Peripheral Interface) son: SCLK (Reloj), MOSI (Master Out Slave In), MISO (Master In Slave Out), SS/CS (Selección de esclavo).
-Las conexiones necesarias para la comunicación I2C (Inter-Integrated Circuit) son: SCL (Reloj) y SDA (Datos).
-Las conexiones necesarias para la comunicación UART (Universal Asynchronous Receiver-Transmitter) son: TX (Transmisión) y RX (Recepción).
+### Protocolos de Comunicación  
+Los dispositivos utilizan tres protocolos estándar:  
+- **SPI** (Serial Peripheral Interface):  
+  - `SCLK` (Reloj), `MOSI` (Master Out Slave In), `MISO` (Master In Slave Out), `SS/CS` (Selección de esclavo)  
+- **I2C** (Inter-Integrated Circuit):  
+  - `SCL` (Reloj), `SDA` (Datos)  
+- **UART** (Universal Asynchronous Receiver-Transmitter):  
+  - `TX` (Transmisión), `RX` (Recepción)  
 
-En este proyecto el módulo GPS usa comunicación UART, el acelerómetro ADXL355Z usa comunicación SPI, el módulo RTC-DS3231 usa comunicación I2C, la tarjeta µSD usa comunicación SPI. La comunicación del ESP32-WROOM-32 con la entrada USB-C usa el protocolo UART. En cuanto a la alimentación del sistema, todos los dispositivos implementados se alimentan con un voltaje de +3.3V, este valor se consigue a partir de un Buck-Converter de +12V a +5V y un regulador de voltaje LD33V con salida de +3.3V.
+### Implementación  
+- **GPS**: UART  
+- **Acelerómetro ADXL355Z**: SPI  
+- **RTC-DS3231**: I2C  
+- **Tarjeta µSD**: SPI  
+- **USB-C del ESP32**: UART  
 
-Este proyecto se basa en la electrónica (Hardware) necesaria para que el sistema de monitoreo sísmico funcione, todo el software que usa este proyecto se encuentra en el repositorio [RSA Sensor](https://github.com/JorgeZh-hub/RSA_sensor)
+### Alimentación  
+El sistema opera a **+3.3V**, obtenido mediante:  
+1. **Buck-Converter** (+12V a +5V)  
+2. **Regulador LD33V** (+5V a +3.3V) 
+
+🔗 Este proyecto se basa en la electrónica (hardware) necesaria para que el sistema de monitoreo sísmico funcione, todo el software que usa este proyecto se encuentra en el repositorio [RSA Sensor](https://github.com/JorgeZh-hub/RSA_sensor)
 
 ---
 
@@ -83,7 +98,11 @@ A continuación se detallan los componentes clave del diseño:
 - `D4`: Diodo `1N4148` (Encapsulado: `SMA/DO-214AC`, Código SMD: `US1M`).  
 - `D5`: Diodo `1N4001` (Encapsulado: `SMA/DO-214AC`, Código SMD: `S1M`).  
 - `D6`: Diodo `1N4001` (Encapsulado: `SMA/DO-214AC`, Código SMD: `S1M`).  
-- `D7`: Diodo LED (Código SMD: `1206`).  
+- `D7`: Diodo LED (Código SMD: `1206`).
+
+#### Otros  
+- Micro-SD Holder: (Tipo: Push in - Auto eject out (SMD/SMT), Modelo: `MSD-1-A`).
+- Conector USB Tipo-C (3.1) Hembra: Componente: `12401832E402A`.
 
 ### 🔋 Conector de Fuente de Alimentación (+12V)  
 - Conector XH 2 posiciones.  
@@ -114,20 +133,23 @@ Los archivos para fabricación están disponibles en la carpeta [`/PCB_SMD`](/PC
 ---
 
 ## 🛠️ Características y Sustento del Diseño 
-Este proyecto se ha realizado con el objetivo de optimizar el prototipo modular del sistema de monitoreo sísmico, para esto se han utilizado componentes de montaje superficial para mejorar la eficiencia y reducir tamaño. Adicionalmente, se han implementado zonas de cobre y planos de masa para minimizar el ruido e interferencias y mejorar la disipación térmica. Se han colocado varios puntos de prueba (test points) para depuración a partir de peinetas (Pin Headers macho) en donde se pueden conectar jumpers o sondas de osciloscopio para observar las señales provenientes del módulo GPS, módulo RTC, acelerómetro, tarjeta micro SD y puerto USB C que se dirigen al ESP32. La versión modular de este proyecto se encuentra disponible en [Modular-PCB-Design-for-Seismic-Monitoring](https://github.com/Christian-Loja/Modular-PCB-Design-for-Seismic-Monitoring).
-En la etapa de alimentación (Buck-Converter) se han colocado resistores con código SMD `2512` (mayor tamaño) para segurar que soporten valores de potencia de hasta `0.5 watts`, así mismo, los capacitores utilizados son electrolíticos y cerámicos modulares para mejorar la disipación de potencia y también debido a que los valores de capacitancia y voltaje requeridos son dificiles de conseguir en una versión SMD (capacitores de tantalio). El inductor utilizado también se ha dimensionado para asegurar una operación en un rango seguro, por esa razón su encapsulado `0805` es ligeramente más grande que los demás componentes SMD. Los demás componentes pasivos, es decir los que operan con la alimentación de 3.3V, son de dimensiones más pequeñas (codigos SMD `0603` y `1206`) debido a que manejan corrientes y voltajes más pequeños. 
+Este proyecto se ha desarrollado con el objetivo de optimizar el prototipo modular del sistema de monitoreo sísmico, utilizando componentes de montaje superficial para mejorar la eficiencia y reducir el tamaño.
+Además, se han implementado zonas de cobre y planos de masa para minimizar el ruido y las interferencias, así como mejorar la disipación térmica. Se han colocado varios puntos de prueba (test points) para la depuración, empleando peinetas (Pin Headers macho), en los cuales se pueden conectar jumpers o sondas de osciloscopio para monitorear las señales provenientes del módulo GPS, módulo RTC, acelerómetro, tarjeta micro SD y puerto USB-C, que se dirigen al ESP32. La versión modular de este proyecto se encuentra disponible en [Modular-PCB-Design-for-Seismic-Monitoring](https://github.com/Christian-Loja/Modular-PCB-Design-for-Seismic-Monitoring).
+
+En la etapa de alimentación (Buck Converter), se han colocado resistores con código SMD `2512`, de mayor tamaño, para garantizar que soporten valores de potencia de hasta 0.5 watts. Asimismo, los capacitores utilizados son electrolíticos y cerámicos modulares, seleccionados por su capacidad para mejorar la disipación de potencia y porque los valores de capacitancia y voltaje requeridos son difíciles de encontrar en versión SMD, lo que hace necesario el uso de capacitores de tantalio.
+El inductor también ha sido dimensionado para garantizar una operación dentro de un rango seguro; por esta razón, su encapsulado `0805` es ligeramente más grande que el de otros componentes SMD. Por otro lado, los componentes pasivos que operan con una alimentación de +3.3V presentan dimensiones más pequeñas (`0603` y `1206`), ya que manejan corrientes y voltajes más bajos. 
 
 ### ✔️ Características Clave  
-- **Reducción de tamaño**: Optimización del espacio en la placa al reemplazar los módulos ESP32DEV-KIT, Buck-Converter MH-Mini360, Lector µSD y RTC-DS3231 por una versión SMD dieñada para cada módulo. Para lograr estos reemplazos fue necesario aplicar ingeniería inversa a los modulos. La implementación de las versiones SMD también proporciona mayor resistencia al movimiento y vibraciones a comparación con sus versiones modulares. 
-- **Bajo ruido**: Para minimizar interferencias en las señales se ha colocado un plano de tierra en ambas caras del diseño, de modo que se cortocircuite cualquier señal no deseada que incida sobre la placa. Estos planos de tierra también mejoran la disipación térmica de los componentes, por ende, se reduce el ruido térmico.  
+- **Reducción de tamaño**: Optimización del espacio en la PCB mediante el reemplazo de los módulos ESP32DEV-KIT, Buck Converter MH-Mini360, Lector µSD y RTC-DS3231 por versiones SMD diseñadas específicamente para cada módulo. Para implementar estos reemplazos, fue necesario aplicar ingeniería inversa a los módulos originales. La adopción de versiones SMD no solo reduce el tamaño del diseño, sino que también mejora significativamente la resistencia a movimientos y vibraciones en comparación con sus equivalentes modulares. 
+- **Bajo ruido**: Para minimizar las interferencias en las señales, se ha incorporado un plano de tierra en ambas caras del diseño, lo que permite cortocircuitar cualquier señal no deseada que pueda afectar la placa. Además, estos planos optimizan la disipación térmica de los componentes, contribuyendo a la reducción del ruido térmico.  
 - **Comunicación inalámbrica**: Para mantener las funciones de conectividad Wifi del ESP32 se implementó el modelo ESP32-WROOM-32E cuyo encapsulado cuenta con una antena externa para la comunicación.  
-- **Robustez y eficiencia energética**: Para asegurar la integridad de los componentes presentes en la placa se ha configurado una serie de diodos rectificadores que dirigen el flujo de corriente de cualquiera de las fuentes (+12V o USB-C) hacia un regulador de voltaje que proporcionará los 3.3V necesarios en el proyecto. La fuente de alimentación principal se ha implementado mediante un Buck-Converter debido a que permite manejar corrientes considerables manteniendo una generación de calor baja y, principalemte, debido a la alta eficiencia energética que este tipo de fuentes proporciona (aprox 85%).
+- **Robustez y eficiencia energética**: Para garantizar la integridad de los componentes de la placa, se ha configurado una serie de diodos rectificadores que dirigen el flujo de corriente desde cualquiera de las fuentes de alimentación (+12V o USB-C) hacia un regulador de voltaje, encargado de suministrar los 3.3V requeridos por el sistema. La fuente de alimentación principal se ha implementado mediante un Buck Converter, ya que permite manejar corrientes considerables con una baja generación de calor y, principalmente, por su alta eficiencia energética, que alcanza aproximadamente el 85%.
 
 ### 📐 Criterios de Diseño  
 - **Grosor de líneas de alimentación**: Para una corriente de `1A` se recomienda `1mm` de ancho de pista, por lo tanto, dependiendo de la ubicación de la pista se usarán grosores dentro del rango `0.5–1mm` ya que las corrientes que circulan por la placa están por debajo de 1A.  
-- **Grosor de líneas de transmisión**: Para comunicación SPI se recomiendan grosores de pista dentro del rango `0.2–0.3mm`. Para comunicación I2C se recomienda el rango `0.15–0.25mm`. Para comunicación UART se recomienda el rango `0.15–0.25mm`. Para mantener lineas de un solo grosor se usará `0.2032mm` para SPI, I2C y UART.
-- **Diseño de doble cara**: Para facilitar la alimentación y conexión entre componentes se ha diseñado una placa de doble cara. La cara superior contiene todos los componentes y la mayoria de conexiones entre ellos, la cara inferior se usa para transportar señales de comunicación SPI, I2C o UART que no puedan enrutarse en la capa superior. El diseño de doble cara permite tener un plano de tierra que cubra gran parte de ambas caras con esto se logra reducir significativamente las interferencias.
-- **Separación entre líneas de transmisión**: Para evitar acoplamientos e interferencias en las señales de SPI y UART se recomienda una distancia entre pistas de almenos 3 veces el ancho de la pista. De forma similar para las señales de I2C se recomienda una separación de almenos 2 veces el ancho de pista. Estos parámetros fueron tomados en cuenta en todos los enrutamientos de la placa.
+- **Grosor de líneas de transmisión**: Para la comunicación SPI, se recomienda un grosor de pista dentro del rango de 0.2–0.3mm, mientras que para I2C y UART, el rango recomendado es de 0.15–0.25mm. Con el fin de mantener uniformidad en el diseño, se utilizará un grosor de 0.2032mm para las líneas de comunicación SPI, I2C y UART.
+- **Diseño de doble cara**: Para optimizar la alimentación y la conexión entre los componentes, se ha diseñado una placa de doble cara. La cara superior alberga todos los componentes y la mayoría de las conexiones entre ellos, mientras que la cara inferior se utiliza para transportar señales de comunicación SPI, I2C y UART que no puedan enrutarse en la capa superior. El diseño de doble cara permite integrar un plano de tierra que cubre una gran parte de ambas caras, lo que contribuye significativamente a la reducción de interferencias.
+- **Separación entre líneas de transmisión**: Para minimizar el acoplamiento e interferencias en las señales SPI y UART, se recomienda una distancia entre pistas de al menos tres veces el ancho de la pista. De manera similar, para las señales I2C, se aconseja una separación mínima de dos veces el ancho de pista. Estos parámetros han sido aplicados en todos los enrutamientos de la placa.
 
 ---
 
@@ -136,20 +158,21 @@ En la etapa de alimentación (Buck-Converter) se han colocado resistores con có
 - La validación de reglas de diseño y de errores eléctricos realizada por el software Fusion 360 se muestra en una tabla que lista los errores encontrados. En este caso la validación de ERC y DRC muestran cero errores, estos resultados se muestran en las carpetas ![Esquemático](/images_schematic) y ![PCB](/images_pcb_layers) respectivamente.
 
 ### 🔍 Conclusiones  
-- La placa ha sido diseñada en el Software Fusion 360 de AutoDesk. Esta plataforma facilita el desarrollo y diseño de circuitos gracias a la gran variedad de componentes recopilados en sus librerías. Sin embargo, durante la realización de este proyecto no se encontraron librerías que contengan sensores como el acelerómetro ADXL355Z, el módulo GPS-FPGMMOPA6H, ESP32-WROOM-32, IC MP2307, IC LD33V, IC CH340G, Micro-SD Holder, IC 74LVC125A y el IC DS3231. Por lo tanto, estos componentes tuvieron que ser diseñados por completo (esquemático, footprint y modelo 3D) en la misma plataforma Fusion 360. Varios paquetes de software de AutoDesk (incluido Fusion 360) son dirigidos hacia la comunidad científica y de investigación, por ende cuentan con licencias sin costo para estudiantes o miembros de universidades. Estas son opciones excelentes y completas para diseño electrónico, PCB, radiofrecuencia, mecánica y muchas otras áreas de ingeniería.
-- Para facilitar el ensamblaje del diseño se utilizaron componentes comunes en el mercado. Para los capacitores del circuito de alimentación se implementaron versiones modulares debido a que su disipación de potencia es mayor que en el resto del circuito, además, algunos de sus valores de capacitancia (10µF, 100µF) pueden ser dificiles de encontrar en versiones SMD.
-- Los planos de tierra son una parte muy importante para mejorar la disipación térmica y reducir las interferencias, por esta razón ambas caras del PCB están cubiertas casi en su totalidad por este plano. Si bien los planos de cobre (zonas de cobre aisladas de cualquier señal y diferentes al plano de tierra) también ayudan a la disipación térmica, en este caso no se han implementado debido a que podrían ser fuente de interferencia para las señales I2C, SPI y UART. Los planos de tierra cubren casi por completo los puntos vacios del PCB por lo que la implementación de planos de cobre no es necesaria.
-- Este diseño cuenta con una entrada USB-C que permite alimentar el circuito entero y programar el ESP32. Se ha escogido esta versión de USB para mantener un proyecto moderno con conexiones estandarizadas ampliamente utlizadas.
-- A diferencia de su versión modular diseñada en [Modular-PCB-Design-for-Seismic-Monitoring](https://github.com/Christian-Loja/Modular-PCB-Design-for-Seismic-Monitoring), este diseño es mucho más compacto y profesional ya que se utilizan únicamente los componentes necesarios para el funcionamiento del sistema en lugar de un módulo completo como, por ejemplo, el caso del módulo ESP32-DEVKIT que fue reemplazado por el ESP32-WROOM32.
+- La placa ha sido diseñada utilizando el software Fusion 360 de AutoDesk, una plataforma que facilita el desarrollo y diseño de circuitos gracias a su extensa biblioteca de componentes. Sin embargo, durante la realización de este proyecto, no se encontraron librerías que incluyeran sensores como el acelerómetro `ADXL355Z`, el módulo `GPS-FPGMMOPA6H`, `ESP32-WROOM-32E`, los circuitos integrados `MP2307`, `LD33V`, `CH340G`, `74LVC125A` y `DS3231`, así como el soporte para Micro-SD. Como resultado, fue necesario diseñar estos componentes desde cero dentro de Fusion 360, incluyendo su esquemático, footprint y modelo 3D. Varios paquetes de software de AutoDesk, incluido Fusion 360, están orientados a la comunidad científica y de investigación, por ende ofrecen licencias sin costo para estudiantes o miembros de universidades. Estas herramientas son excelentes opciones avanzadas y completas para el diseño de electrónica, PCB, radiofrecuencia, mecánica y muchas otras disciplinas de ingeniería.
+- Para simplificar el ensamblaje del diseño, se han utilizado componentes ampliamente disponibles en el mercado. En el caso de los capacitores del circuito de alimentación, se optó por versiones modulares debido a su mayor capacidad de disipación de potencia en comparación con el resto del circuito. Además, algunos valores de capacitancia, como 10 µF y 100 µF, pueden ser difíciles de encontrar en formato SMD, lo que hizo necesario recurrir a estos componentes modulares.
+- Los planos de tierra desempeñan un papel fundamental en la disipación térmica y la reducción de interferencias, por lo que ambas caras del PCB han sido cubiertas casi en su totalidad con este plano. Aunque los planos de cobre —zonas de cobre aisladas de cualquier señal y distintas al plano de tierra— también pueden contribuir a la disipación térmica, en este caso no se han implementado, ya que podrían generar interferencias en las señales I2C, SPI y UART. Además, dado que los planos de tierra ocupan la mayor parte de los espacios vacíos del PCB, la incorporación de planos de cobre no resulta necesaria.
+- Este diseño incorpora una entrada USB-C, lo que permite tanto la alimentación del circuito completo como la programación del ESP32. Se ha seleccionado esta versión de USB para garantizar un proyecto moderno con conexiones estandarizadas y ampliamente utilizadas.
+- A diferencia de su versión modular, desarrollada en [Modular-PCB-Design-for-Seismic-Monitoring](https://github.com/Christian-Loja/Modular-PCB-Design-for-Seismic-Monitoring), este diseño es notablemente más compacto y profesional. En lugar de incorporar módulos completos, se han seleccionado únicamente los componentes esenciales para el funcionamiento del sistema. Un claro ejemplo de esta optimización es el reemplazo del módulo `ESP32-DEVKIT` por el `ESP32-WROOM32E`, lo que mejora la eficiencia y reduce el espacio ocupado en la PCB.
 
 ### ⚠️ Precauciones  
-- **Montaje**: Verificar polaridad de componentes sensibles (ej. entrada de 12 voltios y capacitores electrolíticos), se recomienda observar los modelos 3D y footprints durante el ensamblaje del circuito para mayor seguridad.  
-- **Adquisición de componentes**: Asegurar que los componentes por comprar tengan un codigo SMD correspondiente a cada elemento listado en este repositorio, caso contrario, no será posible soldarlos en la placa por la diferencia de dimensiones.  
+- **Montaje**: Es fundamental verificar la polaridad de los componentes sensibles, como la entrada de 12 voltios y los capacitores electrolíticos. Para garantizar un ensamblaje seguro, se recomienda revisar los modelos 3D y los footprints antes y durante la instalación.
+Además, durante el proceso de soldadura, es esencial aplicar el calor de manera controlada para evitar daños en la PCB o en los componentes. Por ello, se aconseja utilizar un cautín con temperatura regulable y una pistola de calor ajustable para un manejo preciso del calor.  
+- **Adquisición de componentes**: Es crucial verificar que los componentes a adquirir cuenten con un código SMD, una versión modular o un modelo compatible con cada elemento listado en el repositorio. De lo contrario, las diferencias en dimensiones podrían impedir su correcta soldadura en la PCB.  
 
 ### 🔮 Recomendaciones  
-- Añadir una etapa de protección de sobretensiones y picos de corriente para evitar daños en el hardware y pérdidas de información.  
+- Implementar una etapa de protección contra sobretensiones y picos de corriente para prevenir daños en el hardware y evitar pérdidas de información.
 - Considerar encapsulado/blindaje para ambientes hostiles.
-- Añadir un circuito para alimentación de respaldo para todo el sistema. Actualmente solo el RTC DS3231 cuenta con una bateria que mantiene activo el reloj durante periodos de desconexión eléctrica.
+- Incorporar un circuito de alimentación de respaldo para todo el sistema, ya que actualmente solo el `RTC-DS3231` cuenta con una batería que mantiene activo el reloj durante períodos de desconexión eléctrica.
 
 ---
 
